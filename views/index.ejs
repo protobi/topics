@@ -1,18 +1,187 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title><%= title %></title>
-      <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
-      <script type="text/javascript" src="/bower_components/lodash/lodash.js"></script>
-      <script type="text/javascript" src="/bower_components/backbone/backbone-min.js"></script>
-      <script type="text/javascript" src="/bower_components/d3/d3.min.js"></script>
+    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/bower_components/lodash/lodash.js"></script>
+    <script type="text/javascript" src="/bower_components/backbone/backbone-min.js"></script>
+    <script type="text/javascript" src="/bower_components/d3/d3.min.js"></script>
+    <script type="text/javascript" src="/javascripts/notify.min.js"></script>
+    <link rel="stylesheet" href="/bower_components/pure/pure-min.css"/>
 
-      <link rel="stylesheet" href="/bower_components/pure/pure-min.css"/>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <style>
+        body {
+            font-family: "HelveticaNeue-Light", "HelveticaNueue", "Arial", "sans-serif"
+        }
+        .risk {
+            border: 1px solid grey;
+            margin: 20px ;
+            max-width: 600px;
+        }
 
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p class="pure-button">Welcome to <%= title %></p>
-  </body>
+        .risk .edit.icon {
+            display: inline-block;
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
+        .risk .edit.icon {
+            display: inline-block;
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
+        .risk .edit.icon:hover {
+            color: #00B7FF
+        }
+
+
+        .header {
+            /*border: 1px solid green;*/
+            padding: 10px;
+            /*background-color: #eee;*/
+
+        }
+        .content {
+            /*border: 1px solid red;*/
+            /*padding: 10px;*/
+        }
+
+        .risks {
+            margin: 10px 0;
+        }
+
+        .title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: grey;
+            width: 100%;
+
+        }
+
+        .risk.single:hover {
+            background: #eee;
+        }
+
+        .risk.dragover .header {
+            background-color: #FC0;
+        }
+
+        .risk.description {
+
+        }
+    </style>
+</head>
+<body>
+<h1>Sources of risk</h1>
+<h2>Topic: Project risks</h2>
+
+
+<div id=risks></div>
+</body>
+
+<script type="text/javascript">
+
+    var RiskModel = Backbone.Model.extend();
+
+
+    var RiskView = Backbone.View.extend({
+        className: 'risk',
+        initialize: function (options, values) {
+            this.setKidViews();
+        },
+        setKidViews: function () {
+            if (this.model.get('children')) {
+                var risks = new Risks(this.model.get('children'));
+                this.kidView = new RisksView({
+                    collection: risks
+                })
+            }
+        },
+        render: function () {
+            this.$el.addClass(this.className);
+            this.$header = $('<div></div>').addClass('header').appendTo(this.$el);
+            var $editIcon = $('<div></div>').addClass("edit icon").html("&#9776;");
+            $('<div></div>').addClass('title').html(this.model.get('title')).appendTo(this.$header)
+                    .prepend($editIcon)
+            $('<div></div>').addClass('description').html(this.model.get('description')).appendTo(this.$header);
+
+            var $content = $('<div></div>').addClass('content').appendTo(this.$el)
+            if (this.kidView) {
+                this.kidView.render().$el.appendTo($content);
+            }
+            else this.$el.addClass('single').attr('draggable', true);
+
+            return this;
+        }
+    });
+
+    var Risks = Backbone.Collection.extend({
+        model: RiskModel
+    })
+
+    var RisksView = Backbone.View.extend({
+        className: 'risks',
+        events: {
+            'dragover .droparea': 'onDragOver',
+            'dragenter  .droparea': 'onDragEnter',
+            'dragleave  .droparea': 'onDragLeave'
+        },
+        onDragOver: function (evt) {
+            evt.preventDefault();
+        },
+        onDragEnter: function (evt) {
+            this.$header.addClass('dragover');
+        },
+        onDragLeave: function (evt) {
+            this.$header.removeClass('dragover');
+        },
+
+        initialize: function (args) {
+            this.setKidViews();
+
+        },
+        setKidViews: function () {
+            this.kidViews = this.collection.map(function (kid) {
+                return new RiskView({
+                    model: kid
+                })
+            })
+
+        },
+        render: function () {
+            var self = this;
+            this.$el.empty();
+            this.$el.addClass(this.className);
+//                    $('<div></div>').addClass('title').html(this.model.get('title')).appendTo(this.$el);
+            this.kidViews.forEach(function (kidView) {
+                self.$el.append(kidView.render().$el);
+            });
+            return this;
+        }
+    });
+
+    $.ajax({
+        method: "GET",
+        url: "/db/1.json",
+        success: function (data, status, xhr) {
+            $.notify("Good", "success");
+
+            var risks = new Risks(data);
+            var risksView = new RisksView({
+                collection: risks
+            })
+            risksView.render().$el.appendTo("#risks")
+
+        },
+        error: function (xhr, status, error) {
+            console.log(arguments)
+            $.notify("Bad", "error")
+        }
+    })
+
+
+</script>
+
 </html>

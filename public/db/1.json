@@ -1,4 +1,4 @@
-var risks = [
+[
   {
     "title": "Executive Support",
     "children": [
@@ -22,7 +22,7 @@ var risks = [
   },
 
   {
-    title: "Scope",
+    "title": "Scope",
     "children": [
 
       {
@@ -52,7 +52,7 @@ var risks = [
   },
 
   {
-    title: "Cost Management",
+    "title": "Cost Management",
     "children": [
 
 
@@ -67,7 +67,7 @@ var risks = [
 
 
   {
-    title: "Change Management",
+    "title": "Change Management",
     "children": [
 
 
@@ -110,7 +110,7 @@ var risks = [
 
 
   {
-    title: "Stakeholders",
+    "title": "Stakeholders",
     "children": [
 
 
@@ -141,7 +141,7 @@ var risks = [
 
 
   {
-    title: "Communication",
+    "title": "Communication",
     "children": [
 
 
@@ -168,7 +168,7 @@ var risks = [
 
 
   {
-    title: "Resources & Team",
+    "title": "Resources & Team",
     "children": [
 
 
@@ -215,7 +215,7 @@ var risks = [
 
 
   {
-    title: "Architecture",
+    "title": "Architecture",
     "children": [
 
 
@@ -238,7 +238,7 @@ var risks = [
 
 
   {
-    title: "Design",
+    "title": "Design",
     "children": [
 
 
@@ -261,7 +261,7 @@ var risks = [
 
 
   {
-    title: "Technical",
+    "title": "Technical",
     "children": [
 
 
@@ -332,7 +332,7 @@ var risks = [
 
 
   {
-    title: "Integration",
+    "title": "Integration",
     "children": [
 
 
@@ -375,7 +375,7 @@ var risks = [
 
 
   {
-    title: "Requirements",
+    "title": "Requirements",
     "children": [
 
 
@@ -410,7 +410,7 @@ var risks = [
 
 
   {
-    title: "Decisions & Issue Resolution",
+    "title": "Decisions & Issue Resolution",
     "children": [
 
 
@@ -433,7 +433,7 @@ var risks = [
 
 
   {
-    title: "Procurement",
+    "title": "Procurement",
     "children": [
 
       {
@@ -491,10 +491,8 @@ var risks = [
 
 
   {
-    title: "Authority",
+    "title": "Authority",
     "children": [
-
-//Authority"},
 
       {
         "title": "Project team lack authority to complete work",
@@ -507,10 +505,9 @@ var risks = [
 
 
   {
-    title: "Approvals and Red Tape",
+    "title": "Approvals and Red Tape",
     "children": [
 
-//Approvals & Red Tape"},
 
       {
         "title": "Delays to stakeholder approvals impact the project",
@@ -535,10 +532,9 @@ var risks = [
 
 
   {
-    title: "Organizational",
+    "title": "Organizational",
     "children": [
 
-//Organizational"},
 
       {
         "title": "The project fails to match the organization's culture",
@@ -555,7 +551,7 @@ var risks = [
 
 
   {
-    title: "External",
+    "title": "External",
     "children": [
 
 
@@ -582,7 +578,7 @@ var risks = [
 
 
   {
-    title: "Project Management",
+    "title": "Project Management",
     "children": [
 
 
@@ -601,7 +597,7 @@ var risks = [
 
 
   {
-    title: "Secondary Risks",
+    "title": "Secondary Risks",
     "children": [
 
 
@@ -612,7 +608,7 @@ var risks = [
 
 
   {
-    title: "User Acceptance",
+    "title": "User Acceptance",
     "children": [
 
 
@@ -651,7 +647,7 @@ var risks = [
 
 
   {
-    title: "Commercial",
+    "title": "Commercial",
     "children": [
 
       {
