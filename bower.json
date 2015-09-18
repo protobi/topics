@@ -1,0 +1,28 @@
+{
+  "name": "carepoint",
+  "version": "0.0.0",
+  "homepage": "https://github.com/protobi/carepoint",
+  "authors": [
+    "Pieter Sheth-Voss <pieter@protobi.com>"
+  ],
+  "description": "Drag and drop interface for risk source collation",
+  "moduleType": [
+    "es6",
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "d3": "~3.5.6",
+    "backbone": "~1.2.3",
+    "jquery": "~2.1.4",
+    "lodash": "~3.10.1",
+    "pure": "~0.6.0"
+  }
+}
