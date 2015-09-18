@@ -188,8 +188,6 @@
             var self = this;
             this.$el.empty();
             this.$el.addClass(this.className);
-
-//                    $('<div></div>').addClass('title').html(this.model.get('title')).appendTo(this.$el);
             this.kidViews.forEach(function (kidView, index) {
                 self.$el.append(kidView.render().$el);
                 var dropZone = new DropZone({
