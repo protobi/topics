@@ -15,9 +15,12 @@
             font-family: "HelveticaNeue-Light", "HelveticaNueue", "Arial", "sans-serif"
         }
         .risk {
-            border: 1px solid grey;
-            margin: 20px ;
-            max-width: 600px;
+            border: 1px solid #aaa;
+            margin: 0 10px ;
+            max-width: 400px;
+            display: inline-block;
+
+            vertical-align: top;
         }
 
         .risk .edit.icon {
@@ -36,6 +39,13 @@
             color: #00B7FF
         }
 
+        .risk.single {
+            display: block;
+        }
+
+        .new-risk {
+            width: 100%;
+        }
 
         .header {
             /*border: 1px solid green;*/
@@ -50,6 +60,7 @@
 
         .risks {
             margin: 10px 0;
+            /*border: 1px solid red;*/
         }
 
         .title {
@@ -64,7 +75,14 @@
             background: #eee;
         }
 
-        .risk.dragover .header {
+        .dropzone {
+            width: 100%;
+            height: 20px;
+            /*border: 1px solid grey;*/
+            display: inline-block;
+            /*background-color: red;*/
+        }
+        .dropzone.dragover {
             background-color: #FC0;
         }
 
@@ -90,6 +108,7 @@
         className: 'risk',
         initialize: function (options, values) {
             this.setKidViews();
+            this.parent = options.parent;
         },
         setKidViews: function () {
             if (this.model.get('children')) {
@@ -107,6 +126,10 @@
                     .prepend($editIcon)
             $('<div></div>').addClass('description').html(this.model.get('description')).appendTo(this.$header);
 
+            if (this.model.get('children')) {
+                $('<div></div>').addClass('pure-button new-risk').html("New risk").appendTo(this.$header)
+            }
+
             var $content = $('<div></div>').addClass('content').appendTo(this.$el)
             if (this.kidView) {
                 this.kidView.render().$el.appendTo($content);
@@ -119,44 +142,64 @@
 
     var Risks = Backbone.Collection.extend({
         model: RiskModel
+    });
+
+    var DropZone = Backbone.View.extend({
+        className: 'dropzone',
+        events: {
+            'dragover ': 'onDragOver',
+            'dragenter': 'onDragEnter',
+            'dragleave': 'onDragLeave'
+        },
+        onDragOver: function (evt) {
+            console.log(evt)
+            evt.preventDefault();
+        },
+        onDragEnter: function (evt) {
+            this.$el.addClass('dragover');
+        },
+        onDragLeave: function (evt) {
+            this.$el.removeClass('dragover');
+        },
+
+        render: function() {
+            this.$el.empty().addClass(this.className);
+            return this;
+        }
     })
 
     var RisksView = Backbone.View.extend({
         className: 'risks',
-        events: {
-            'dragover .droparea': 'onDragOver',
-            'dragenter  .droparea': 'onDragEnter',
-            'dragleave  .droparea': 'onDragLeave'
-        },
-        onDragOver: function (evt) {
-            evt.preventDefault();
-        },
-        onDragEnter: function (evt) {
-            this.$header.addClass('dragover');
-        },
-        onDragLeave: function (evt) {
-            this.$header.removeClass('dragover');
-        },
 
         initialize: function (args) {
             this.setKidViews();
 
         },
         setKidViews: function () {
+            var self = this;
             this.kidViews = this.collection.map(function (kid) {
                 return new RiskView({
-                    model: kid
+                    model: kid,
+                    parent: self
                 })
             })
-
         },
         render: function () {
             var self = this;
             this.$el.empty();
             this.$el.addClass(this.className);
+
 //                    $('<div></div>').addClass('title').html(this.model.get('title')).appendTo(this.$el);
-            this.kidViews.forEach(function (kidView) {
+            this.kidViews.forEach(function (kidView, index) {
                 self.$el.append(kidView.render().$el);
+                var dropZone = new DropZone({
+                    attributes: {
+                        parent: self,
+                        index: index
+                    }
+                })
+                if (!kidView.model.get('children'))
+                dropZone.render().$el.appendTo(self.$el)
             });
             return this;
         }
