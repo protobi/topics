@@ -1,0 +1,673 @@
+var risks = [
+  {
+    "title": "Executive Support",
+    "children": [
+
+      {
+        "title": "Executives fail to support project",
+        "description": "The project team may lack the authority to achieve project objectives. In such cases, executive management support is fundamental to project success. When this doesn't materialize the project fails."},
+
+      {
+        "title": "Executives become disengaged with project",
+        "description": "Executive management disregards project communications and meetings."},
+
+      {
+        "title": "Conflict between executive stakeholders disrupts project",
+        "description": "Members of executive management are combative to the project or there is a disagreement over project issues at the executive level."},
+
+      {
+        "title": "Executive turnover disrupts project",
+        "description": "A key executive leaves the company, the resulting disruption becomes a project issue."}
+    ]
+  },
+
+  {
+    title: "Scope",
+    "children": [
+
+      {
+        "title": "Scope is ill defined",
+        "description": "The general risk of an error or omission in scope definition."},
+
+      {
+        "title": "Scope creep inflates scope",
+        "description": "Uncontrolled changes and continuous growth of scope."},
+
+      {
+        "title": "Gold plating inflates scope",
+        "description": "The project team add their own product features that aren't in requirements or change requests."},
+
+      {
+        "title": "Estimates are inaccurate",
+        "description": "Inaccurate estimates is a common project risk."},
+
+      {
+        "title": "Dependencies are inaccurate",
+        "description": "Dependencies dramatically impact the project schedule and costs."},
+
+      {
+        "title": "Activities are missing from scope",
+        "description": "Required activities are missing from scope definition."}
+    ]
+  },
+
+  {
+    title: "Cost Management",
+    "children": [
+
+
+      {
+        "title": "Cost forecasts are inaccurate",
+        "description": "Inaccurate cost estimates and forecasts."},
+
+      {
+        "title": "Exchange rate variability",
+        "description": "When costs are incurred in foreign currencies exchange rates can have a dramatic impact."}
+    ]},
+
+
+  {
+    title: "Change Management",
+    "children": [
+
+
+      {
+        "title": "Change management overload",
+        "description": "A large number of change requests dramatically raises the complexity of the project and distracts key resources."},
+
+      {
+        "title": "Stakeholder conflict over proposed changes",
+        "description": "Change requests may be the source of stakeholder conflict."},
+
+      {
+        "title": "Perceptions that a project failed because of changes",
+        "description": "Large numbers of high priority change requests may lead to the perception that the project has failed. When the schedule and budget are continually extended — stakeholders may feel the project missed its original targets."},
+
+      {
+        "title": "Lack of a change management system",
+        "description": "Identify any lack of critical tools as a risk."},
+
+      {
+        "title": "Lack of a change management process",
+        "description": "Change management at the organizational or departmental level is critical to project success. Otherwise, the project will have limited visibility into changes that impact the project."},
+
+      {
+        "title": "Lack of a change control board",
+        "description": "A change control board is essential to managing change for large projects."},
+
+      {
+        "title": "Inaccurate change priorities",
+        "description": "When non-essential changes are prioritized impacting critical schedules."},
+
+      {
+        "title": "Low quality of change requests",
+        "description": "Change requests that are low quality (e.g. ambiguous)."},
+
+      {
+        "title": "Change request conflicts with requirements",
+        "description": "Change requests that make no sense in the context of the requirements."}
+    ]},
+
+
+  {
+    title: "Stakeholders",
+    "children": [
+
+
+      {
+        "title": "Stakeholders become disengaged",
+        "description": "When stakeholders ignore project communications."},
+
+      {
+        "title": "Stakeholders have inaccurate expectations",
+        "description": "Stakeholders develop inaccurate expectations (believe that the project will achieve something not in the requirements, plan, etc)."},
+
+      {
+        "title": "Stakeholder turnover",
+        "description": "Stakeholder turnover can lead to project disruptions."},
+
+      {
+        "title": "Stakeholders fail to support project",
+        "description": "When stakeholders have a negative attitude towards the project and wish to see it fail."},
+
+      {
+        "title": "Stakeholder conflict",
+        "description": "Disagreement between stakeholders over project issues."},
+
+      {
+        "title": "Process inputs are low quality",
+        "description": "Inputs from stakeholders that are low quality (e.g. business case, requirements, change requests)."}
+    ]},
+
+
+  {
+    title: "Communication",
+    "children": [
+
+
+      {
+        "title": "Project team misunderstand requirements",
+        "description": "When requirements are misinterpreted by the project team a gap develops between expectations, requirements and work packages."},
+
+      {
+        "title": "Communication overhead",
+        "description": "When key project resources spend a high percentage of their time engaging stakeholders on project issues and change requests their work may fall behind."},
+
+      {
+        "title": "Under communication",
+        "description": "Communication is a challenge that's not to be underestimated. You may need to communicate the same idea many times in different ways before people remember it."},
+
+      {
+        "title": "Users have inaccurate expectations",
+        "description": "The risk that users believe the project is building an apple when you're really building an orange (i.e. users don't understand the product that's coming their way)."},
+
+      {
+        "title": "Impacted individuals aren't kept informed",
+        "description": "A stakeholder is missing in your communication plan. Anyone who isn't informed but is impacted has an excellent reason to throw up project roadblocks. For example, if you build a system but fail to consult the operations group that will be responsible for support."}
+    ]},
+
+
+  {
+    title: "Resources & Team",
+    "children": [
+
+
+      {
+        "title": "Resource shortfalls",
+        "description": "Inability to secure sufficient resources for the project."},
+
+      {
+        "title": "Learning curves lead to delays and cost overrun",
+        "description": "When your project team need to acquire new skills for the project there's a risk that productivity will be low."},
+
+      {
+        "title": "Training isn't available",
+        "description": "Quality training for certain skills can be difficult to secure."},
+
+      {
+        "title": "Training is inadequate",
+        "description": "Training is often a poor substitute for professional experience. Projects shouldn't assume that resources will be fully productive in a new skill."},
+
+      {
+        "title": "Resources are inexperienced",
+        "description": "Resources who are just out of school or who are new to your industry or profession tend to make more mistakes and be less productive."},
+
+      {
+        "title": "Resource performance issues",
+        "description": "Resources who perform below expectations."},
+
+      {
+        "title": "Team members with negative attitudes towards the project",
+        "description": "Resources who are negative towards the project may actively or passively sabotage project efforts."},
+
+      {
+        "title": "Resource turnover",
+        "description": "Resource turnover leads to delays and cost overrun."},
+
+      {
+        "title": "Low team motivation",
+        "description": "Your team lacks motivation. This is a particularly common risk for long running projects."},
+
+      {
+        "title": "Lack of commitment from functional managers",
+        "description": "In a matrix organization your team may report to functional managers. These functional managers are important stakeholders whose support is critical."}
+    ]},
+
+
+  {
+    title: "Architecture",
+    "children": [
+
+
+      {
+        "title": "Architecture fails to pass governance processes",
+        "description": "Plan for any architectural or technology governance processes that the project may need to pass."},
+
+      {
+        "title": "Architecture lacks flexibility",
+        "description": "The architecture is incapable of supporting change requests and needs to be reworked."},
+
+      {
+        "title": "Architecture is not fit for purpose",
+        "description": "The architecture is low quality."},
+
+      {
+        "title": "Architecture is infeasible",
+        "description": "The architecture is impossible to implement, excessively costly or doesn't support the requirements."}
+    ]},
+
+
+  {
+    title: "Design",
+    "children": [
+
+
+      {
+        "title": "Design is infeasible",
+        "description": "The design isn't possible, is excessively costly or doesn't support the requirements."},
+
+      {
+        "title": "Design lacks flexibility",
+        "description": "A poor design makes change requests difficult and costly."},
+
+      {
+        "title": "Design is not fit for purpose",
+        "description": "The design is low quality."},
+
+      {
+        "title": "Design fails peer review",
+        "description": "It's a good idea to have peers or architectural experts review your designs."}
+    ]},
+
+
+  {
+    title: "Technical",
+    "children": [
+
+
+      {
+        "title": "Technology components aren't fit for purpose",
+        "description": "Technology components are low quality."},
+
+      {
+        "title": "Technology components aren't scalable",
+        "description": "Components that can't be scaled to meet performance demands."},
+
+      {
+        "title": "Technology components aren't interoperable",
+        "description": "Components that lack standard interfaces."},
+
+      {
+        "title": "Technology components aren't compliant with standards and best practices",
+        "description": "Non-standard components that violate best practices."},
+
+      {
+        "title": "Technology components have security vulnerabilities",
+        "description": "Security vulnerabilities are key technology risks."},
+
+      {
+        "title": "Technology components are over-engineered",
+        "description": "A component that's bloated with unneeded functionality and design features."},
+
+      {
+        "title": "Technology components lack stability",
+        "description": "Components that crash."},
+
+      {
+        "title": "Technology components aren't extensible",
+        "description": "Components that are difficult to extend with new capabilities."},
+
+      {
+        "title": "Technology components aren't reliable",
+        "description": "Components that fail after a short time."},
+
+      {
+        "title": "Information security incidents",
+        "description": "The risk of a a security incident during the project (e.g. information is leaked)."},
+
+      {
+        "title": "System outages",
+        "description": "Critical systems such as your test environments go down."},
+
+      {
+        "title": "Legacy components lack documentation",
+        "description": "Integration with undocumented legacy components is a high risk activity."},
+
+      {
+        "title": "Legacy components are out of support",
+        "description": "Integration with legacy components that are no longer in support."},
+
+      {
+        "title": "Components or products aren't maintainable",
+        "description": "Technology components, tools or platforms that are difficult to maintain (e.g. lacking documentation, rare skills, complex or experimental)."},
+
+      {
+        "title": "Components or products can't be operationalized",
+        "description": "Technology operations may have criteria for operationalization of new systems that need to be met."},
+
+      {
+        "title": "Project management tool problems & issues",
+        "description": "Technical problems with the project management tools themselves."}
+    ]},
+
+
+  {
+    title: "Integration",
+    "children": [
+
+
+      {
+        "title": "Delays to required infrastructure",
+        "description": "Delays to infrastructure such as hardware or software."},
+
+      {
+        "title": "Failure to integrate with business processes",
+        "description": "The risk that your product will fail to fit into the existing business."},
+
+      {
+        "title": "Failure to integrate with systems",
+        "description": "The risk that your product will fail to integrate with existing systems."},
+
+      {
+        "title": "Integration testing environments aren't available",
+        "description": "The risk that environments won't be available to test integration."},
+
+      {
+        "title": "Failure to integration with the organization",
+        "description": "The risk that your project fails to integrate with the organization. This happens when the project is focused on delivering something specific and fails to look at the organization as a whole. For example, you deliver a sales system but your organization doesn't have a sales team."},
+
+      {
+        "title": "Failure to integrate components",
+        "description": "The risk that product components will fail to integrate with each other. This can represent a significant risk when you've outsourced work to a large number of vendors."},
+
+      {
+        "title": "Project disrupts operations",
+        "description": "The last thing you want is for your project to disrupt business operations and damage the firm's financial results. Think about risks beyond project failure."},
+
+      {
+        "title": "Project disrupts sales",
+        "description": "The risk that the project disrupts sales effectiveness."},
+
+      {
+        "title": "Project disrupts compliance",
+        "description": "The risk that the project disrupts compliance processes such as audits and reporting."}
+    ]},
+
+
+  {
+    title: "Requirements",
+    "children": [
+
+
+      {
+        "title": "Requirements fail to align with strategy",
+        "description": "Your requirements conflict with the firm's strategy. If you sense that this is the case, list it as a risk."},
+
+      {
+        "title": "Requirements fail to align with business processes",
+        "description": "The requirements make no sense in the context of the business."},
+
+      {
+        "title": "Requirements fail to align with systems",
+        "description": "The requirements fail to align with other systems (e.g. they duplicate functionality)."},
+
+      {
+        "title": "Requirements have compliance issues",
+        "description": "If you have any doubt that requirements comply with the law list it as a risk."},
+
+      {
+        "title": "Requirements are ambiguous",
+        "description": "Requirements are unclear and open to interpretation."},
+
+      {
+        "title": "Requirements are low quality",
+        "description": "Requirements aren't fit for purpose."},
+
+      {
+        "title": "Requirements are incomplete",
+        "description": "You can spot obvious holes in the requirements."}
+    ]},
+
+
+  {
+    title: "Decisions & Issue Resolution",
+    "children": [
+
+
+      {
+        "title": "Decision delays impact project",
+        "description": "Establish guidelines for decision turnaround time. Identify the risk that guidelines will be exceeded."},
+
+      {
+        "title": "Decisions are ambiguous",
+        "description": "Stakeholders may have a tendency to make decisions that are intentionally ambiguous (a responsibility avoidance technique). This can be identified as a risk and managed."},
+
+      {
+        "title": "Decisions are low quality",
+        "description": "Decisions aren't fit for purpose."},
+
+      {
+        "title": "Decisions are incomplete",
+        "description": "Issue resolutions that don't address the issue or create more issues."}
+    ]},
+
+
+  {
+    title: "Procurement",
+    "children": [
+
+      {
+        "title": "No response to RFP",
+        "description": "The risk that there is limited response to an RFP. This occurs when the RFP terms are unacceptable to vendors or if your firm has a bad reputation amongst vendors."},
+
+      {
+        "title": "Low quality responses to RFP",
+        "description": "Half hearted responses to your RFP that are unusable."},
+
+      {
+        "title": "Failure to negotiation a reasonable price for contracts",
+        "description": "Inability to negotiate a reasonable price for contracts. This occurs when the requirements or contract terms make vendors nervous."},
+
+      {
+        "title": "Unacceptable contract terms",
+        "description": "Inability to negotiate acceptable contract terms."},
+
+      {
+        "title": "Conflict with vendor leads to project issues",
+        "description": "The relationship with vendor turns to conflict and project issues mount."},
+
+      {
+        "title": "Conflict between vendors leads to project issues",
+        "description": "Your vendors develop conflict with each other and cooperation breaks down."},
+
+      {
+        "title": "Vendors start late",
+        "description": "The risk of a late start."},
+
+      {
+        "title": "Vendor components fail to meet requirements",
+        "description": "A vendor misunderstands requirements or delivers components that are completely off the mark."},
+
+      {
+        "title": "Vendor components are low quality",
+        "description": "Vendor components aren't fit for purpose."},
+
+      {
+        "title": "Infrastructure is low quality",
+        "description": "Your infrastructure fails or is not fit for purpose."},
+
+      {
+        "title": "Service quality is low",
+        "description": "Services you procure such as consulting are not fit for purpose."},
+
+      {
+        "title": "Vendor components introduce third party liability",
+        "description": "Vendor components introduce liability (e.g. they violate patents)."},
+
+      {
+        "title": "Loss of intellectual property",
+        "description": "Vendors spy on you."}
+    ]},
+
+
+  {
+    title: "Authority",
+    "children": [
+
+//Authority"},
+
+      {
+        "title": "Project team lack authority to complete work",
+        "description": "If you lack specific authorities required to deliver the project list this as a risk."},
+
+      {
+        "title": "Authority is unclear",
+        "description": "It's unclear who has the authority to accomplish a project objective."}
+    ]},
+
+
+  {
+    title: "Approvals and Red Tape",
+    "children": [
+
+//Approvals & Red Tape"},
+
+      {
+        "title": "Delays to stakeholder approvals impact the project",
+        "description": "The risk that approval deadlines will be exceeded."},
+
+      {
+        "title": "Delays to financial approvals impact the project",
+        "description": "The risk of delays to financial approvals and processes to release funds."},
+
+      {
+        "title": "Delays to procurement processes impact the project",
+        "description": "Many organizations have specific procurement processes that must be followed. These processes can be time consuming and highly variable. Document the risk that procurement process will exceed deadlines."},
+
+      {
+        "title": "Delays to recruiting processes impact the project",
+        "description": "If your project involves recruiting resources, this will typically take many months and is highly variable."},
+
+      {
+        "title": "Delays to training impact the project",
+        "description": "If your training budget requires separate approvals (e.g. from functional managers or HR) document the risk that this will be slow."}
+    ]},
+
+
+  {
+    title: "Organizational",
+    "children": [
+
+//Organizational"},
+
+      {
+        "title": "The project fails to match the organization's culture",
+        "description": "A culture fit issue between your product and the organization. If the organization's culture calls for employees to bring their own mobile devices to work (BYOD) and you build a user interface that only works on a specific device."},
+
+      {
+        "title": "An organizational restructuring throws the project into chaos",
+        "description": "If your project has a large footprint it may be extremely sensitive to organizational changes."},
+
+      {
+        "title": "A merger or acquisition disrupts the project",
+        "description": "Mergers & acquisitions may represent significant organizational changes."}
+    ]},
+
+
+  {
+    title: "External",
+    "children": [
+
+
+      {
+        "title": "Legal & regulatory change impacts project",
+        "description": "If your project spans areas that are compliance-sensitive you may want to list regulatory change as a risk."},
+
+      {
+        "title": "Force Majeure (e.g. act of nature) impacts project",
+        "description": "Major disruptions such as acts of nature."},
+
+      {
+        "title": "Market forces impact project",
+        "description": "Market changes impact project (e.g. a market crash)."},
+
+      {
+        "title": "Technical change impacts project",
+        "description": "A technology innovation changes your industry and impacts the project."},
+
+      {
+        "title": "Business change impacts project",
+        "description": "A business innovation changes your industry and impacts the project."}
+    ]},
+
+
+  {
+    title: "Project Management",
+    "children": [
+
+
+      {
+        "title": "Failure to follow methodology",
+        "description": "If your organization asks you to streamline your project management methodology, that can be documented as a risk."},
+
+      {
+        "title": "Lack of management or control",
+        "description": "A lack of project management should be documented as a risk. For example, if resource constraints cause the project to skip certain project management best practices."},
+
+      {
+        "title": "Errors in key project management processes",
+        "description": "Errors in project management such as schedule errors."}
+    ]},
+
+
+  {
+    title: "Secondary Risks",
+    "children": [
+
+
+      {
+        "title": "Counterparty risk",
+        "description": "The risk you get back when you transfer a risk."}
+    ]},
+
+
+  {
+    title: "User Acceptance",
+    "children": [
+
+
+      {
+        "title": "Users reject the prototype",
+        "description": "One of the key methods of improving user acceptance is to get regular prototypes in front of users. There's always a risk that these prototypes will be rejected (require significant rework)."},
+
+      {
+        "title": "User interface doesn't allow users to complete tasks",
+        "description": "The risk that the user interface doesn't allow users to complete end-to-end tasks."},
+
+      {
+        "title": "User interface is low quality",
+        "description": "The user interface is buggy, slow or difficult to use."},
+
+      {
+        "title": "User interface isn't accessible",
+        "description": "In many jurisdictions, user interfaces must be accessible (e.g. employment or consumer law). Many organizational cultures require accessible user interfaces."},
+
+      {
+        "title": "Project reduces business productivity",
+        "description": "Users identify your product(s) as reducing their productivity."},
+
+      {
+        "title": "Project reduces innovation",
+        "description": "Users identify your product(s) as a roadblock to innovation."},
+
+      {
+        "title": "Product disrupts business metrics (measurements of objectives)",
+        "description": "Your product launch causes business KPIs to worsen. For example, if you launch a new ERP and Supply Chain Cycle Times jump."},
+
+      {
+        "title": "Users reject the product",
+        "description": "The general risk that users will reject your product."}
+    ]},
+
+
+  {
+    title: "Commercial",
+    "children": [
+
+      {
+        "title": "Product doesn't sell",
+        "description": "Demand risk for the new product."},
+
+      {
+        "title": "Product incurs legal liability",
+        "description": "The product has quality issues that harm your customers."},
+
+      {
+        "title": "Product negatively affects brand",
+        "description": "The product has quality issues that damage your brand."},
+
+      {
+        "title": "Product negatively affects reputation",
+        "description": "The product generates negative publicity and/or damages customer relationships."}
+    ]}
+]
